@@ -1,0 +1,66 @@
+Modify files and folders
+These commands will help you create, modify, and delete files and folders.
+
+cat [FILE]
+This command has many uses, but most commonly for beginners, cat is used to output the contents of a [FILE] to the terminal
+mkdir [FOLDER_NAME]
+Create a new folder with the desired [FOLDER_NAME]. This occurs in your current working directory
+cp [FILE] [DUPLICATE_FILE]
+Make a copy of a file
+mv [FILE] [MOVED_FILE]
+Move files and folders. Can also rename files and folders
+rm [FILE]
+Delete [FILE]
+rm -r [FOLDER]
+Delete a [FOLDER] recursively, which means the folder and everything in it
+The basics
+These essential commands will help you navigate, explore, and perform simple actions on your terminal.
+
+ls
+List the normal files and folders in the current directory in condensed format
+pwd
+Output the full path of the current working directory for this terminal
+cd
+Change your current working directory. When used by itself, it will default to changing to your home directory
+cd [FOLDER]
+Change your current working directory to the desired [FOLDER]
+cd ..
+Change your current working directory to the parent directory
+
+
+
+
+########################################################################
+
+Add you cheet sheet to the staging area: git add terminal_cheat_sheet.txt
+Commit changes: git commit -m "add terminal cheat sheet"
+Push changes to the remote repo: git push origin terminal_cheat_sheet
+Go to github to your repository page.
+Click on the green "Compare & pull request" button.
+Write a description for your pull request.
+Click on the green button "Create pull request"
+Click on the green button "Merge pull request"
+Click on the green button "Confirm merge"
+Congrats! You have merged your first pull request!!!!
+
+
+####################################################################
+Terminal CheatSheat for Virtual environment 
+
+site: https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/ 
+
+- go to correct folder.
+
+- create virtual environment: python3 -m venv name
+
+- activate the virtual environment : source name/bin/activate
+
+- To deactivate: deactivate
+
+- Install packages from requirement file in same folder: python3 -m pip install -r requirements.txt
+
+- Run Python programme: python  programme_name.py
+
+
+
+
