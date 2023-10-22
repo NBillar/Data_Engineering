@@ -17,8 +17,8 @@ COPY . .
 EXPOSE 5000
 
 # Environment Variables
-ENV PROJECT_ID=DE-2023-2
-
+ENV PROJECT_ID=de23-398309
+ENV PREDICTOR_API_ENDPOINT=https://us-central1-de23-398309.cloudfunctions.net/wine_quality_predictor
 
 # Update meta data if necessary
 LABEL wine.quality.predictor.api="0.0.1-beta"
