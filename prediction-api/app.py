@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, request
 
-from wine_quality_predictor import WinePredictor #[IMPORTS MODEL FUNCTION]
+from wine_quality_predictor import predict_wine_quality #[IMPORTS MODEL FUNCTION]
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -15,7 +15,7 @@ def predict_str():
     return dp.predict_single_record(prediction_inout)
 
 
-dp = WinePredictor()
+dp = predict_wine_quality()
 # The code within this conditional block will only run the python file is executed as a
 # script. See https://realpython.com/if-name-main-python/
 if __name__ == '__main__':
