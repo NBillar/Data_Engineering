@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 # A decorator used to tell the application
 # which URL is associated function
-@app.route("/checkwinequality/", methods=["GET", "POST"])
+@app.route("/checkwinequality", methods=["GET", "POST"])
 def check_wine_quality():
     if request.method == "GET":
         return render_template("input_form_page.html")
@@ -30,7 +30,6 @@ def check_wine_quality():
             "sulphates": float(request.form.get("sulphates")),
             "alcohol": float(request.form.get("alcohol")),
         }
-        raise Exception("Raise works")
 
         logging.warning("Prediction input : %s", prediction_input)
 

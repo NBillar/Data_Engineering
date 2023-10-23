@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Quality Prediction Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet"> 
+    <style>
+        #main-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;  /* Prevents scrolling */
+            font-family: 'arial', serif;  /* Apply Merriweather font */
+            font-weight: normal;
+        }
+
+        #background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-image: url('templates/wallpaper.png');
+            background-size: cover;
+            opacity: 0.2;
+            z-index: -1;  /* Places the background behind other elements */
+        }
+
+        header {
+            background-color: #8b1426;  /* Red-pinkish background color */
+            font-family: 'Merriweather', serif;
+            text-align: center;
+            font-weight: bold;
+            padding: 1px 0;
+            margin-bottom: 20px;
+            opacity: 1;
+            z-index: 1;  /* Ensures the header is above the background */
+            font-size: 1.8em;  /* Larger, fancier font size */
+        }
+
+        #predicted-score {
+            font-size: 2em;
+            margin-bottom: 300px;
+        }
+
+        #return-button {
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="background"></div>  
+
+    <header>
+        <h1>Wine Quality Prediction Result</h1>
+    </header>
+
+    <div id="main-container">
+        <div id="predicted-score">
+            Predicted Wine Score: prediction_variable  
+		
+		<div style="text-align: center;">
+			<div id="return-button">
+				<a href="input_form_page.html"><button>Return to Main Page</button></a> 
+			</div>
+		</div>
+			
+    </div>
+</body>
+</html>
