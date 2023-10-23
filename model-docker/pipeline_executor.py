@@ -10,6 +10,7 @@ def run_pipeline_job(name, pipeline_def, pipeline_root, parameter_dict):
     # Opening JSON file
     f = open(parameter_dict)
     data = json.load(f)
+    print('Printing JSON Data...')
     print(data)
     logging.info(data)
     job = aip.PipelineJob(
