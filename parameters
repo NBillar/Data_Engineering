@@ -1,0 +1,7 @@
+{
+    "project_id": "de23-398309",  
+    "data_bucket": "data_de2023_2065718", 
+    "dataset_filename": "train_data.csv",  
+    "model_repo": "models_de2023_2065718",  
+    "prediction_set": "predict_data.csv"
+}
