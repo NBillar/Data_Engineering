@@ -8,9 +8,11 @@ from google.cloud import storage
 import pickle
 import re
 from io import StringIO
+import logging
 
 
 def predict_wine_quality(request, PROJECT_ID):
+    logging.debug(request)
     """
     This function will be executed when the endpoint is called
     """
@@ -88,6 +90,7 @@ def predict_wine_quality(request, PROJECT_ID):
     # df = pd.read_json(json.dumps(request_json), orient="records")
     # print(df, file=sys.stdout)
     y_pred = model.predict(X)
+    logging.info(y_pred[0])
 
     # return the response
     return jsonify({"result": str(y_pred[0])})

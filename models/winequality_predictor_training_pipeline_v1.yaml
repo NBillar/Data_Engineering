@@ -514,7 +514,7 @@ deploymentSpec:
           \ = 1)\n    train_features = features.drop(\"quality\", axis=1)\n    test_features\
           \ = features[[\"quality\"]]\n    scaler.fit(train_features)\n    scaled_features\
           \ = pd.DataFrame(\n        scaler.transform(train_features),\n        columns=train_features.columns,\n\
-          \        index=train_features.index,\n    )\n\n    pca = PCA(n_components=0.1,\
+          \        index=train_features.index,\n    )\n\n    pca = PCA(n_components=4,\
           \ svd_solver=\"full\")\n    pca.fit(scaled_features)\n    pca_df = pd.DataFrame(pca.transform(scaled_features))\n\
           \    result = pd.concat([pca_df, test_features], axis=1)\n\n    result.to_csv(pca_features.path\
           \ + \".csv\", index=False, encoding=\"utf-8-sig\")\n\n    # Save the scaler\n\
