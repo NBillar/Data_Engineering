@@ -7,6 +7,7 @@ from flask import jsonify
 from google.cloud import storage
 import pickle
 import re
+from io import StringIO
 
 
 def predict_wine_quality(request, PROJECT_ID):
@@ -33,20 +34,22 @@ def predict_wine_quality(request, PROJECT_ID):
     sulphates = request_json["sulphates"]
     alcohol = request_json["alcohol"]
 
-    form_data = pd.DataFrame(
-        data={
-            "fixed acidity": fixed_acidity,
-            "volatile acidity": volatile_acidity,
-            "citric acid": citric_acid,
-            "residual sugar": residual_sugar,
-            "chlorides": chlorides,
-            "free sulfur dioxide": free_sulfur_dioxide,
-            "total sulfur dioxide": total_sulfur_dioxide,
-            "density": density,
-            "pH": pH,
-            "sulphates": sulphates,
-            "alcohol": alcohol,
-        }
+    form_data = pd.read_json(
+        StringIO(json.dumps(request)),
+        orient="records"
+        # data={
+        #     "fixed acidity": fixed_acidity,
+        #     "volatile acidity": volatile_acidity,
+        #     "citric acid": citric_acid,
+        #     "residual sugar": residual_sugar,
+        #     "chlorides": chlorides,
+        #     "free sulfur dioxide": free_sulfur_dioxide,
+        #     "total sulfur dioxide": total_sulfur_dioxide,
+        #     "density": density,
+        #     "pH": pH,
+        #     "sulphates": sulphates,
+        #     "alcohol": alcohol,
+        # }
     )
 
     # load the model from cloud storage
@@ -87,4 +90,4 @@ def predict_wine_quality(request, PROJECT_ID):
     y_pred = model.predict(X)
 
     # return the response
-    return jsonify({"result": y_pred[0].tolist()})
+    return jsonify({"result": str(y_pred[0])})
