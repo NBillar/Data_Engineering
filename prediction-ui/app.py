@@ -30,6 +30,7 @@ def check_wine_quality():
             "sulphates": float(request.form.get("sulphates")),
             "alcohol": float(request.form.get("alcohol")),
         }
+        raise Exception("Raise works")
 
         logging.warning("Prediction input : %s", prediction_input)
 
