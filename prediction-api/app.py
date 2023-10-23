@@ -9,7 +9,7 @@ app.config["DEBUG"] = True
 
 
 @app.route(
-    "/wine_quality_predictor/", methods=["POST"]
+    "/checkwinequality/", methods=["POST"]
 )  # path of the endpoint. Except only HTTP POST request
 def predict_str():
     # the prediction input data in the message body as a JSON payload
