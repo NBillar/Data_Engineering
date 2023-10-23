@@ -14,7 +14,7 @@ app.config["DEBUG"] = True
 def predict_str():
     # the prediction input data in the message body as a JSON payload
     prediction_inout = request.get_json()
-    return predict_wine_quality(request=request, PROJECT_ID=PROJECT_ID)
+    return predict_wine_quality(request=request, PROJECT_ID=os.environ["PROJECT_ID"])
 
 
 # The code within this conditional block will only run the python file is executed as a
