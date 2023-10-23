@@ -17,7 +17,8 @@ def predict_wine_quality(request, PROJECT_ID):
     This function will be executed when the endpoint is called
     """
     # extract the request body
-    request_json = request.get_json()
+    # request_json = request.get_json()
+    request_json = request
 
     # logging the request body
     print("Request received : {}".format(request_json))
