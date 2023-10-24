@@ -1,0 +1,14 @@
+steps:
+  - name: gcr.io/cloud-builders/gsutil
+    args:
+      - cp
+      - 'gs://data_de2023_20204025/parameters.json'
+      - .
+  - name: >-
+      ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/pipeline-executor:0.0.1
+    args:
+      - '--name=winequality-predictor-v1'
+      - '--pipeline_def=./models/winequality_predictor_training_pipeline_v1.yaml'
+      - '--pipeline_root=gs://temp_de2023_20204025'
+      - '--parameter_dict=./parameters.json'
+
