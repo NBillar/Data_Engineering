@@ -18,8 +18,7 @@ EXPOSE 5000
 
 # Environment Variables   
 # NOTE NUF removed predictor-api-server and replaced it with predictor-api because container will be named predictor-api
-ENV PREDICTOR_API=http://predictor-api:5000/wine_quality_predictor/
-
+ENV PREDICTOR_API=http://predictor-api-server:5000/wine_quality_predictor/
 # Update meta data if necessary
 LABEL wine.quality.predictor.api="0.0.1-beta"
 

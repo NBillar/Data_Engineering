@@ -31,7 +31,7 @@ def check_wine_quality():
             "alcohol": float(request.form.get("alcohol")),
         }
 
-        logging.debug("Prediction input : %s", prediction_input)
+        logging.warning("Prediction input : %s", prediction_input)
 
         # use requests library to execute the prediction service API by sending an HTTP POST request
         # use an environment variable to find the value of the diabetes prediction API

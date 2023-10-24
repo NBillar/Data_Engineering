@@ -102,13 +102,10 @@
     </header>
 	<div id="main-container">
 		<div id="form-container">
-		<form id="wine-quality-form" action="response_page.html" method="POST">
+		<form id="wine-quality-form" action="/checkwinequality" method="POST">
 			<label for="fixed-acidity">Fixed Acidity:</label><br>
 			<input type="number" id="fixed-acidity" name="fixed-acidity" step="0.01" required><br>
-			
-			 <label for="fixed-acidity">Fixed Acidity:</label><br>
-			<input type="number" id="fixed-acidity" name="fixed-acidity" step="0.01" required><br>
-			
+
 			<label for="volatile-acidity">Volatile Acidity:</label><br>
 			<input type="number" id="volatile-acidity" name="volatile-acidity" step="0.01" required><br>
 			
@@ -141,7 +138,7 @@
 			
                 
             <div style="text-align: center">
-                <input type="submit" value="Predict" id="predictButton" />
+				<input type="submit" value="Predict" id="predictButton" />
               </div>
 				
 			
