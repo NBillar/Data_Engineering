@@ -38,7 +38,7 @@ def predict_wine_quality(request, PROJECT_ID):
     alcohol = request_json["alcohol"]
 
     form_data = pd.DataFrame(
-        request_json
+        request_json, index = [0]
         # StringIO(json.dumps(request)),
         # orient="records"
         # data={
