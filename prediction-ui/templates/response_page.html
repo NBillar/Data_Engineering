@@ -68,13 +68,15 @@
 
     <div id="main-container">
         <div id="predicted-score">
-            Predicted Wine Score: <var>prediction_variable</var>
+            Predicted Wine Score: {prediction_variable}
 		
-		<div style="text-align: center;">
-			<div id="return-button">
-				<a href="input_form_page.html"><button>Return to Main Page</button></a> 
-			</div>
-		</div>
+		<form id="wine-quality-form" action="/checkwinequality" method="GET">
+            <div style="text-align: center">
+				<input type="submit" value="Return to Main Page" id="predictButton" />
+              </div>
+
+
+		</form>
 			
     </div>
 </body>
