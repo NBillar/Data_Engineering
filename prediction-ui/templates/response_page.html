@@ -53,10 +53,22 @@
             margin-bottom: 300px;
         }
 
-        #return-button {
-            margin-top: 20px;
-        }
+        #wine-quality-form #predictButton {
+        background-color: #8b0000; /* White background color */
+        color: #fff; /* Wine-red text color */
+        font-size: 1.3em; /* Increase font size */
+        padding: 8px 16px; /* Top-bottom padding and left-right padding */
+        border: 1px solid #8b0000; /* Wine-red border */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Hand cursor on hover */
+        transition: 0.3s; /* Smooth transition for hover effect */
+      }
 
+      #wine-quality-form #predictButton:hover {
+        background-color: #450000; /* Wine-red background on hover */
+        color: #fff; /* White text color on hover */
+        border: 1px solid #450000; /* Wine-red border */
+      }
     </style>
 </head>
 <body>
@@ -68,7 +80,7 @@
 
     <div id="main-container">
         <div id="predicted-score">
-            Predicted Wine Score: {prediction_variable}
+            Predicted Wine Score: {{prediction_variable}}
 		
 		<form id="wine-quality-form" action="/checkwinequality" method="GET">
             <div style="text-align: center">
