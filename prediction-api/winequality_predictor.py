@@ -25,21 +25,22 @@ def predict_wine_quality(request, PROJECT_ID):
 
     # extract the request parameters
     # => Nodig?
-    fixed_acidity = request_json["fixed_acidity"]
-    volatile_acidity = request_json["volatile_acidity"]
-    citric_acid = request_json["citric_acid"]
-    residual_sugar = request_json["residual_sugar"]
+    fixed_acidity = request_json["fixed acidity"]
+    volatile_acidity = request_json["volatile acidity"]
+    citric_acid = request_json["citric acid"]
+    residual_sugar = request_json["residual sugar"]
     chlorides = request_json["chlorides"]
-    free_sulfur_dioxide = request_json["free_sulfur_dioxide"]
-    total_sulfur_dioxide = request_json["total_sulfur_dioxide"]
+    free_sulfur_dioxide = request_json["free sulfur dioxide"]
+    total_sulfur_dioxide = request_json["total sulfur dioxide"]
     density = request_json["density"]
     pH = request_json["pH"]
     sulphates = request_json["sulphates"]
     alcohol = request_json["alcohol"]
 
-    form_data = pd.read_json(
-        StringIO(json.dumps(request)),
-        orient="records"
+    form_data = pd.DataFrame(
+        request_json
+        # StringIO(json.dumps(request)),
+        # orient="records"
         # data={
         #     "fixed acidity": fixed_acidity,
         #     "volatile acidity": volatile_acidity,
