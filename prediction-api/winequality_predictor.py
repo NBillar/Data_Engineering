@@ -8,35 +8,39 @@ from google.cloud import storage
 import pickle
 import re
 from io import StringIO
+import logging
 
 
 def predict_wine_quality(request, PROJECT_ID):
+    logging.debug(request)
     """
     This function will be executed when the endpoint is called
     """
     # extract the request body
-    request_json = request.get_json()
+    # request_json = request.get_json()
+    request_json = request
 
     # logging the request body
     print("Request received : {}".format(request_json))
 
     # extract the request parameters
     # => Nodig?
-    fixed_acidity = request_json["fixed_acidity"]
-    volatile_acidity = request_json["volatile_acidity"]
-    citric_acid = request_json["citric_acid"]
-    residual_sugar = request_json["residual_sugar"]
+    fixed_acidity = request_json["fixed acidity"]
+    volatile_acidity = request_json["volatile acidity"]
+    citric_acid = request_json["citric acid"]
+    residual_sugar = request_json["residual sugar"]
     chlorides = request_json["chlorides"]
-    free_sulfur_dioxide = request_json["free_sulfur_dioxide"]
-    total_sulfur_dioxide = request_json["total_sulfur_dioxide"]
+    free_sulfur_dioxide = request_json["free sulfur dioxide"]
+    total_sulfur_dioxide = request_json["total sulfur dioxide"]
     density = request_json["density"]
     pH = request_json["pH"]
     sulphates = request_json["sulphates"]
     alcohol = request_json["alcohol"]
 
-    form_data = pd.read_json(
-        StringIO(json.dumps(request)),
-        orient="records"
+    form_data = pd.DataFrame(
+        request_json, index = [0]
+        # StringIO(json.dumps(request)),
+        # orient="records"
         # data={
         #     "fixed acidity": fixed_acidity,
         #     "volatile acidity": volatile_acidity,
@@ -63,7 +67,7 @@ def predict_wine_quality(request, PROJECT_ID):
     ]
     latest = sorted(blobs, key=lambda tup: tup[1])[-1][0]
     latest_model = re.split("/", latest.id)[1]
-    bucket = client.bucket("models_de2023_2065718")
+    bucket = client.bucket("models_de2023_20204025")
     blob = bucket.blob(latest_model)
     with blob.open(mode="rb") as f:
         model = pickle.load(f)
@@ -88,6 +92,7 @@ def predict_wine_quality(request, PROJECT_ID):
     # df = pd.read_json(json.dumps(request_json), orient="records")
     # print(df, file=sys.stdout)
     y_pred = model.predict(X)
+    logging.info(y_pred[0])
 
     # return the response
     return jsonify({"result": str(y_pred[0])})
