@@ -62,12 +62,12 @@ def predict_wine_quality(request, PROJECT_ID):
     blobs = [
         (blob, blob.updated)
         for blob in client.list_blobs(
-            "models_de2023_20204025",
+            os.environ['model_bucket'],
         )
     ]
     latest = sorted(blobs, key=lambda tup: tup[1])[-1][0]
     latest_model = re.split("/", latest.id)[1]
-    bucket = client.bucket("models_de2023_20204025")
+    bucket = client.bucket(os.environ['model_bucket'])
     blob = bucket.blob(latest_model)
     with blob.open(mode="rb") as f:
         model = pickle.load(f)

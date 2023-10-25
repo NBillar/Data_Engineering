@@ -41,6 +41,8 @@ steps:
       - '2'
       - '--memory'
       - 4G
+      - '--set-env-vars'
+      - 'model_bucket=${_MODEL_BUCKET}'
       - '--allow-unauthenticated'
     entrypoint: gcloud
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
@@ -66,3 +68,4 @@ steps:
         PREDICTOR_API=https://prediction-api-jei75mnrsq-uc.a.run.app/wine_quality_predictor/
       - '--allow-unauthenticated'
     entrypoint: gcloud
+

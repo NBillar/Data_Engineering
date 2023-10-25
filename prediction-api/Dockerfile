@@ -18,6 +18,8 @@ EXPOSE 5000
 
 # Environment Variables
 ENV PROJECT_ID='de-23-lab-1-399021'
+#ENV model_bucket='models_de2023_20204025'
+ENV model_bucket='hoi'
 
 # Update meta data if necessary
 LABEL wine.quality.predictor.api="0.0.1-beta"
